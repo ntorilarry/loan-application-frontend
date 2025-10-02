@@ -15,7 +15,13 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+const Sidebar = ({
+  sidebarOpen,
+  setSidebarOpen,
+}: {
+  sidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
+}) => {
   return (
     <>
       {/* Mobile Sidebar */}
@@ -60,7 +66,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                             </DisclosureButton>
 
                             <DisclosurePanel className="mt-1 space-y-1">
-                              {item.subItems.map((subItem) => (
+                              {item.subItems?.map((subItem) => (
                                 <Link
                                   key={subItem.name}
                                   href={subItem.href}
@@ -142,7 +148,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                           </DisclosureButton>
 
                           <DisclosurePanel className="mt-1 space-y-1">
-                            {item.subItems.map((subItem) => (
+                            {item.subItems?.map((subItem) => (
                               <Link
                                 key={subItem.name}
                                 href={subItem.href}

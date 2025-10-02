@@ -5,7 +5,20 @@ import { GrSystem } from "react-icons/gr";
 import { MdOutlineApproval, MdPayment } from "react-icons/md";
 import { CiShare1 } from "react-icons/ci";
 
-export const navigation = [
+export type NavigationSubItem = {
+  name: string;
+  href: string;
+  icon: React.ElementType;
+};
+
+export type NavigationItem = {
+  name: string;
+  href: string;
+  icon: React.ElementType;
+  subItems?: NavigationSubItem[];
+};
+
+export const navigation: NavigationItem[] = [
   {
     name: "Dashboard",
     href: "/dashboard",
