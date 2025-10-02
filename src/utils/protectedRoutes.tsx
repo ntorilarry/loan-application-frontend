@@ -6,11 +6,11 @@ import Loader from "@/components/loader";
 import { useAuth } from "./authContext";
 
 export default function ProtectedRoute({ children }: { children: ReactNode }) {
-  const { user, loading } = useAuth();
+  const {token, user, loading } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!loading && !token && !user) {
       router.push("/auth/login");
     }
   }, [user, loading, router]);
