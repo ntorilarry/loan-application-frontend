@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children }: { children: ReactNode }) {
     if (!loading && !token && !user) {
       router.push("/auth/login");
     }
-  }, [user, loading, router]);
+  }, [user, loading, token, router]);
 
   if (loading || !user) {
     return <Loader />;
